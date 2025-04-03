@@ -1,4 +1,4 @@
-import settings
+from django.conf import settings
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.db.models import UniqueConstraint
@@ -86,8 +86,8 @@ class Ticket(models.Model):
         on_delete=models.CASCADE,
         related_name="orders"
     )
-    row = models.IntegerField()
-    seat = models.IntegerField()
+    row = models.PositiveIntegerField()
+    seat = models.PositiveIntegerField()
 
     class Meta:
         constraints = [
